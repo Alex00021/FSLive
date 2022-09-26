@@ -1,10 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-///@Description     xxxx
+///@Description     MyPage
 ///@author          Alex.Ling
 ///@create          2022-09-23 23:54
-///
+
+/// 我的  界面
 class MyPage extends StatefulWidget {
   const  MyPage({Key? key}) : super(key: key);
 

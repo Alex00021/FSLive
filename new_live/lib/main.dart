@@ -1,12 +1,16 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
-import 'home_main_page.dart';
+import 'package:flutter/services.dart';
 import 'index_root.dart';
 
 void main() {
   runApp(const MyApp());
+
+  ///设置状态栏背景色为透明色
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+  SystemUiOverlayStyle systemUiOverlayStyle =
+  const SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+  SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
 }
 
 class MyApp extends StatelessWidget {
@@ -17,10 +21,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        splashColor: Colors.transparent, // 点击时的高亮效果设置为透明
+        highlightColor: Colors.transparent, // 长按时的扩散效果设置为透明
       ),
-      home: FSAD(title: '',),
+      home: const FSAD(title: "",),
     );
   }
 }
@@ -36,8 +43,9 @@ class FSAD extends StatefulWidget {
 }
 
 class _FSADState extends State<FSAD> {
+
   Timer? timer;
-  int count = 8;
+  int count = 3;
 
   @override
   void initState() {
@@ -45,26 +53,27 @@ class _FSADState extends State<FSAD> {
     startTime();
   }
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        alignment: Alignment(1.0, -1.0), // 右上角对齐
+        alignment: const Alignment(1.0, -1.0), // 右上角对齐
         children: [
           ConstrainedBox(
-            constraints: BoxConstraints.expand(),
+            constraints: const BoxConstraints.expand(),
             child: Image.asset("assets/images/image_01.jpg",//广告图
               fit: BoxFit.fill,
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(0.0, 30.0, 10.0, 0.0),
+            padding: const EdgeInsets.fromLTRB(0.0, 30.0, 10.0, 0.0),
             child: FlatButton(
-              color: Color.fromRGBO(0, 0, 0, 0.3),
+              color: const Color.fromRGBO(0, 0, 0, 0.3),
               shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
               child: Text(
                 "$count 跳过",
-                style: TextStyle(color: Colors.white, fontSize: 15.0),
+                style: const TextStyle(color: Colors.white, fontSize: 15.0),
               ),
               onPressed: () {
                 navigationPage();
@@ -76,10 +85,12 @@ class _FSADState extends State<FSAD> {
     );
   }
 
+
+  /// 设置开启时间
   void startTime() async {
     //设置启动图生效时间
-    var _duration = const Duration(seconds: 1);
-    Timer(_duration, () {
+    var duration = const Duration(seconds: 1);
+    Timer(duration, () {
       // 空等1秒之后再计时
       timer = Timer.periodic(const Duration(milliseconds: 1000), (v) {
         count--;
@@ -93,6 +104,8 @@ class _FSADState extends State<FSAD> {
     });
   }
 
+
+  /// 跳转界面
   void navigationPage() {
     timer?.cancel();
     Navigator.of(context).pushReplacement(PageRouteBuilder(

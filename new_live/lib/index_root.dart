@@ -1,15 +1,13 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'view/index_page/channel_page.dart';
+import 'view/index_page/favorite_page.dart';
+import 'view/index_page/home_main_page.dart';
+import 'view/index_page/my_page.dart';
 
-import 'channel_page.dart';
-import 'favorite_page.dart';
-import 'home_main_page.dart';
-import 'my_page.dart';
-
-///@Description     xxxx
+///@Description     IndexRoot
 ///@author          Alex.Ling
 ///@create          2022-09-23 23:44
-///
+/// app 底部导航栏菜单
 class IndexRoot extends StatefulWidget {
   const IndexRoot({Key? key}) : super(key: key);
 
@@ -26,13 +24,13 @@ class _IndexRootState extends State<IndexRoot> {
 
   ///视图view
   final pageControllers = [
-    // 热门
+    // 熱門
     const HotMainPage(),
-    // 频道
+    // 頻道
     const ChannelPage(),
-    // 喜爱
+    // 喜愛
     const FavoritePage(),
-    // 我的 页
+    // 我的
     const MyPage(),
   ];
 
@@ -62,28 +60,28 @@ class _IndexRootState extends State<IndexRoot> {
 
   /// 底部导航图标
   final List<BottomNavigationBarItem> bottomNavItems = [
-    // 首页
+    // 熱門
     const BottomNavigationBarItem(
-      icon: Icon(Icons.book),
-      label: "热门",
-      activeIcon: Icon(Icons.book),
+      icon: Icon(Icons.local_fire_department_rounded),
+      label: "熱門",
+      activeIcon: Icon(Icons.local_fire_department_rounded),
     ),
-    // 推荐页
+    // 頻道
     const BottomNavigationBarItem(
-      icon: Icon(Icons.menu_book_sharp),
-      label: "频道",
-      activeIcon: Icon(Icons.menu_book_sharp),
+      icon: Icon(Icons.play_circle_outline_sharp),
+      label: "頻道",
+      activeIcon: Icon(Icons.play_circle_outline_sharp),
     ),
     const BottomNavigationBarItem(
-      icon: Icon(Icons.library_books_outlined),
-      label: "喜爱",
-      activeIcon: Icon(Icons.library_books_outlined),
+      icon: Icon(Icons.favorite_border),
+      label: "喜愛",
+      activeIcon: Icon(Icons.favorite_border),
     ),
     // "我的"页
     const BottomNavigationBarItem(
-      icon: Icon(Icons.account_circle),
+      icon: Icon(Icons.tag_faces),
       label: "我的",
-      activeIcon: Icon(Icons.face),
+      activeIcon: Icon(Icons.tag_faces),
     ),
   ];
 
@@ -94,7 +92,7 @@ class _IndexRootState extends State<IndexRoot> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Colors.white,
-          selectedItemColor: Colors.green,
+          selectedItemColor: Colors.deepPurpleAccent,
           unselectedItemColor: Colors.grey,
           showUnselectedLabels: true,
           selectedFontSize: 12,
