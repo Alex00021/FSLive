@@ -1,5 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_text/scroll_text.dart';
+import '../../json/discover_json.dart';
+import '../../theme/colors.dart';
 import '../../widget/page_view_indicator.dart';
 import '../seach_page.dart';
 
@@ -125,11 +128,149 @@ class _HotMainPageState extends State<HotMainPage> {
                     ),
                   )
                 ],
-              )
+              ),
+              SizedBox(height: 30,),
+              getSliderLists()
             ],
           ),
         ),
       )
     );
+  }
+
+  Widget getSliderImages(item) {
+    var size = MediaQuery.of(context).size;
+    return Container(
+      width: size.width,
+      height: 180,
+      margin: EdgeInsets.symmetric(horizontal: 5),
+      child: Stack(
+        children: [
+          Container(
+            width: size.width,
+            height: 180,
+            decoration: BoxDecoration(
+                image: DecorationImage(
+                    image: NetworkImage(item['img_video']), fit: BoxFit.cover)),
+          ),
+          Container(
+            width: size.width,
+            height: 180,
+            decoration: BoxDecoration(color: black.withOpacity(0.2)),
+          ),
+          Container(
+            width: size.width,
+            height: 180,
+            child: Padding(
+              padding: const EdgeInsets.all(5.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                        color: Colors.redAccent,
+                        borderRadius: BorderRadius.circular(4)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: Text(
+                        "LIVE",
+                        style: TextStyle(
+                            color: white, fontWeight: FontWeight.w600),
+                      ),
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                        color: black.withOpacity(0.5),
+                        borderRadius: BorderRadius.circular(4)),
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Text(
+                        "${item['viewers']} viewers",
+                        style: TextStyle(color: white),
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget getSliderLists() {
+    var size = MediaQuery.of(context).size;
+    return CarouselSlider(
+        items: List.generate(discover_json_one.length, (index) {
+          List tags = discover_json_one[index]['tags'];
+          return Column(
+            children: [
+              getSliderImages(discover_json_one[index]),
+              Expanded(
+                child: Container(
+                  width: size.width,
+                  margin: EdgeInsets.symmetric(horizontal: 5),
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 5),
+                    child: Column(
+                      children: [
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.end,
+                          children: [
+                            Text(
+                              discover_json_one[index]['name'],
+                              style: TextStyle(
+                                  color: white,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 18),
+                            ),
+                            SizedBox(
+                              width: 5,
+                            ),
+                            Text(
+                              discover_json_one[index]['type'],
+                              style: TextStyle(
+                                  fontSize: 16, color: white.withOpacity(0.7)),
+                            )
+                          ],
+                        ),
+                        SizedBox(
+                          height: 5,
+                        ),
+                        Row(
+                          children: List.generate(tags.length, (index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 5),
+                              child: Container(
+                                decoration: BoxDecoration(
+                                    color: white.withOpacity(0.2),
+                                    borderRadius: BorderRadius.circular(12)),
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8, right: 8, top: 2, bottom: 2),
+                                  child: Text(
+                                    tags[index],
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        fontWeight: FontWeight.w500,
+                                        color: white.withOpacity(0.7)),
+                                  ),
+                                ),
+                              ),
+                            );
+                          }),
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              )
+            ],
+          );
+        }),
+        options: CarouselOptions(height: 240));
   }
 }
