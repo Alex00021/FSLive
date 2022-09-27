@@ -6,10 +6,7 @@
  */
 
 import 'dart:async';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import 'jump_dot/indecator_dot.dart';
 import 'jump_dot/page_indicator.dart';
 
@@ -44,7 +41,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
     super.initState();
     _currentPageIndex = 0;
     // initialPage 为初始化显示的子Item
-    _pageController = new PageController(initialPage: _currentPageIndex);
+    _pageController = PageController(initialPage: _currentPageIndex);
 
     /// 当前页面绘制完第一帧后回调
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -90,7 +87,7 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
                               child: PageIndicator(
                                   controller: _pageController,
                                   count: imagesList.length,
-                                  effect: JumpingDotEffect(
+                                  effect: const JumpingDotEffect(
                                     dotHeight: 10,
                                     dotWidth: 10,
                                     jumpScale: .7,
@@ -116,13 +113,13 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
 
   void startTimer() {
     // 间隔两秒时间
-    _timer = new Timer.periodic(Duration(seconds: 5), (value) {
+    _timer = Timer.periodic(const Duration(seconds: 5), (value) {
       // print("定时器 + $_currentPageIndex");
       _currentPageIndex++;
 
       // 触发轮播切换
       _pageController.animateToPage(_currentPageIndex,
-          duration: Duration(seconds: 5), curve: Curves.ease);//milliseconds
+          duration: const Duration(seconds: 5), curve: Curves.ease);//milliseconds
 
       // 刷新
       setState(() {
