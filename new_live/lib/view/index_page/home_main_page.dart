@@ -1,7 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:scroll_text/scroll_text.dart';
-import '../../json/discover_json.dart';
+import '../../json/channel_json.dart';
 import '../../theme/colors.dart';
 import '../../widget/page_view_indicator.dart';
 import '../seach_page.dart';
@@ -81,56 +82,70 @@ class _HotMainPageState extends State<HotMainPage> {
                 ),
               ),
               const SizedBox(height: 15,),
-              Container(
-                width: double.infinity - 10,
-                height: 30,
-                decoration: BoxDecoration(
-                  color: Colors.pinkAccent,
-                  borderRadius: BorderRadius.circular((5)),
-                ),
-                child: Row(
-                  children: [
-                    SizedBox(width: 5,),
-                    Icon(Icons.volume_up, color: Colors.white,),
-                    SizedBox(width: 5,),
-                    Container(
-                      width: 300,
-                      child: ScrollText(
-                        arrTexts: const [
-                          "本軟體的服務範圍不包含中國大陸、科威特和沙特阿拉伯地區，"
-                              "本軟體服務除上述區域以外的客戶，共同打造綠色健康的網路直播環境，主播應該健康直播，不得違反第三方機構和國家法令直播條例！"
-                              "如果閣下發現違規的直播房間，閣下可以在直播過程中點擊直播流播放過程中的驚嘆標誌舉報該第三方直播內容，"
-                              "我們會盡快將信息錄入並提供給該房間所屬的第三方直播機構盡快移除該房間！"],
-                        maxListNum: 1,
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              const SizedBox(height: 20,),
-              const PageViewIndicator(),
-              const SizedBox(height: 20,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const Text("最新頻道", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
-                  GestureDetector(
-                    onTap: (){
-                      ///TODO
-                    },
-                    child: Container(
-                      child: Row(
+              Expanded(
+                child: Scrollbar(
+                  child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      // reverse: false,
+                      primary: true,
+                      child: Column(
                         children: [
-                          Text("更多", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
-                          Icon(Icons.arrow_forward_ios, color: Colors.black45)
+                          Container(
+                            width: double.infinity - 10,
+                            height: 30,
+                            decoration: BoxDecoration(
+                              color: Colors.pinkAccent,
+                              borderRadius: BorderRadius.circular((5)),
+                            ),
+                            child: Row(
+                              children: [
+                                SizedBox(width: 5,),
+                                Icon(Icons.volume_up, color: Colors.white,),
+                                SizedBox(width: 5,),
+                                Container(
+                                  width: 300,
+                                  child: ScrollText(
+                                    arrTexts: const [
+                                      "本軟體的服務範圍不包含中國大陸、科威特和沙特阿拉伯地區，"
+                                          "本軟體服務除上述區域以外的客戶，共同打造綠色健康的網路直播環境，主播應該健康直播，不得違反第三方機構和國家法令直播條例！"
+                                          "如果閣下發現違規的直播房間，閣下可以在直播過程中點擊直播流播放過程中的驚嘆標誌舉報該第三方直播內容，"
+                                          "我們會盡快將信息錄入並提供給該房間所屬的第三方直播機構盡快移除該房間！"],
+                                    maxListNum: 1,
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          //
+                          const SizedBox(height: 20,),
+                          const PageViewIndicator(),
+                          const SizedBox(height: 20,),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text("最新頻道", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
+                              GestureDetector(
+                                onTap: (){
+                                  ///TODO
+                                },
+                                child: Container(
+                                  child: Row(
+                                    children: const [
+                                      Text("更多", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
+                                      Icon(Icons.arrow_forward_ios, color: Colors.black45)
+                                    ],
+                                  ),
+                                ),
+                              )
+                            ],
+                          ),
+                          const SizedBox(height: 30,),
+                          getChannelList()
                         ],
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: 30,),
-              getSliderLists()
+                      )
+                  ),
+                ),
+              )
             ],
           ),
         ),
@@ -138,139 +153,51 @@ class _HotMainPageState extends State<HotMainPage> {
     );
   }
 
-  Widget getSliderImages(item) {
-    var size = MediaQuery.of(context).size;
+  Widget getChannelList() {
     return Container(
-      width: size.width,
-      height: 180,
-      margin: EdgeInsets.symmetric(horizontal: 5),
-      child: Stack(
+      height: 100,
+      child: Row(
         children: [
-          Container(
-            width: size.width,
-            height: 180,
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: NetworkImage(item['img_video']), fit: BoxFit.cover)),
-          ),
-          Container(
-            width: size.width,
-            height: 180,
-            decoration: BoxDecoration(color: black.withOpacity(0.2)),
-          ),
-          Container(
-            width: size.width,
-            height: 180,
-            child: Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        color: Colors.redAccent,
-                        borderRadius: BorderRadius.circular(4)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Text(
-                        "LIVE",
-                        style: TextStyle(
-                            color: white, fontWeight: FontWeight.w600),
+          Expanded(child: GridView.builder(
+            scrollDirection: Axis.horizontal,
+            itemCount: channel_json_one.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                alignment: Alignment.center,
+                width: 20,
+                height: 160,
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey, width: 0.5),
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.blueAccent,
+                ),
+                child: Column(
+                  children: [
+                    Container(
+                      width: 48,
+                      height: 48,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Colors.blueAccent, width: 0.5),
+                        borderRadius: BorderRadius.circular(48*0.5),
+                        color: Colors.pink,
                       ),
                     ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        color: black.withOpacity(0.5),
-                        borderRadius: BorderRadius.circular(4)),
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Text(
-                        "${item['viewers']} viewers",
-                        style: TextStyle(color: white),
-                      ),
-                    ),
-                  )
-                ],
-              ),
+                    Text("${channel_json_one[index]["LIVE"]}", style: TextStyle(color: Colors.black, fontSize: 16),),
+                  ],
+                )
+              );
+            },
+            gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              // 每个item的水平方向最大宽度
+                maxCrossAxisExtent: 100,
+                // 水平方向每个item之间间距
+                mainAxisSpacing: 30.0,
+                // 垂直方向每个item之间间距
+                // crossAxisSpacing: 0.0
             ),
-          )
+          ))
         ],
       ),
     );
-  }
-
-  Widget getSliderLists() {
-    var size = MediaQuery.of(context).size;
-    return CarouselSlider(
-        items: List.generate(discover_json_one.length, (index) {
-          List tags = discover_json_one[index]['tags'];
-          return Column(
-            children: [
-              getSliderImages(discover_json_one[index]),
-              Expanded(
-                child: Container(
-                  width: size.width,
-                  margin: EdgeInsets.symmetric(horizontal: 5),
-                  child: Padding(
-                    padding: const EdgeInsets.only(top: 5),
-                    child: Column(
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.end,
-                          children: [
-                            Text(
-                              discover_json_one[index]['name'],
-                              style: TextStyle(
-                                  color: white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Text(
-                              discover_json_one[index]['type'],
-                              style: TextStyle(
-                                  fontSize: 16, color: white.withOpacity(0.7)),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: 5,
-                        ),
-                        Row(
-                          children: List.generate(tags.length, (index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 5),
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: white.withOpacity(0.2),
-                                    borderRadius: BorderRadius.circular(12)),
-                                child: Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 8, right: 8, top: 2, bottom: 2),
-                                  child: Text(
-                                    tags[index],
-                                    style: TextStyle(
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w500,
-                                        color: white.withOpacity(0.7)),
-                                  ),
-                                ),
-                              ),
-                            );
-                          }),
-                        )
-                      ],
-                    ),
-                  ),
-                ),
-              )
-            ],
-          );
-        }),
-        options: CarouselOptions(height: 240));
   }
 }
