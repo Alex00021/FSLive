@@ -275,7 +275,7 @@ class _HotMainPageState extends State<HotMainPage> {
                         height: 25,
                         padding: const EdgeInsets.only(right: 10),
                         decoration: BoxDecoration(
-                          color: Colors.white12,
+                          color: Colors.black38,
                           borderRadius: BorderRadius.circular(20),
                         ),
                         child: Row(
