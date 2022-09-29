@@ -37,6 +37,7 @@ dependencies:
   scroll_text: ^0.0.2
   carousel_slider: ^4.1.1
   flutter_icons: ^1.1.0
+  fluro: ^2.0.3
 
 dev_dependencies:
   flutter_test:

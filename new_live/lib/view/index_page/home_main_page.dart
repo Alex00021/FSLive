@@ -1,3 +1,4 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_text/scroll_text.dart';
 import '../../json/anchor_json.dart';
@@ -50,7 +51,24 @@ class _HotMainPageState extends State<HotMainPage> {
                     const SizedBox(width: 25,),
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (_) =>  const SearchPage()));
+                        // Navigator.push(context, MaterialPageRoute(builder: (_) =>  const SearchPage()));
+                        setState(() {
+                          FluroRouter.appRouter.navigateTo(
+                            context,
+                            "firstScreen",
+                            transition: TransitionType.inFromBottom,
+                            transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+                              return FadeTransition(
+                                  opacity: CurvedAnimation(
+                                    parent: animation,
+                                    curve: Curves.linear,
+                                  ),
+                                  child: SearchPage()
+                              );
+                            },
+                            transitionDuration: Duration(seconds: 1), // 需要1s切换
+                          );
+                        });
                       },
                       child: Container(
                         width: 140,

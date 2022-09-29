@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:new_live/view/seach_page.dart';
 import 'index_root.dart';
 
 void main() {
@@ -27,7 +28,12 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent, // 点击时的高亮效果设置为透明
         highlightColor: Colors.transparent, // 长按时的扩散效果设置为透明
       ),
-      home: const FSAD(title: "",),
+      initialRoute: "/",
+      routes: <String,WidgetBuilder>{
+        "/": (context) => FSAD(title: '',),
+        "firstScreen": (context) => SearchPage(), // 根目录
+      },
+      // home: const FSAD(title: "",),
     );
   }
 }
