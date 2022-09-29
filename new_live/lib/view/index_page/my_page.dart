@@ -1,6 +1,9 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 import '../../json/my_list_json.dart';
+import '../../router/app_page_path.dart';
+import '../../router/app_router.dart';
 
 ///@Description     MyPage
 ///@author          Alex.Ling
@@ -47,7 +50,9 @@ class _MyPageState extends State< MyPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text("欢迎来到风速 ·\nWWW.FengSu.fun", style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),),
+          const Text(
+            "歡迎來到神戶 ·\nWWW.ShenHu.fun",
+            style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),),
           const SizedBox(
             height: 2,
           ),
@@ -56,8 +61,12 @@ class _MyPageState extends State< MyPage> {
               height: 33,
               color: Colors.red,
               shape: const StadiumBorder(),
-              onPressed: (){},
-              child: const Text("登入/注册", style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),)),
+              onPressed: (){
+                doLoginOrSignUp();
+              },
+              child: const Text(
+                "登入/註冊",
+                style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),)),
           const SizedBox(
             height: 10,
           ),
@@ -95,13 +104,13 @@ class _MyPageState extends State< MyPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Text(
-                          "风速VIP",
+                          "神戶VIP",
                           style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),),
                         SizedBox(
                           height: 3,
                         ),
                         Text(
-                          "尊享豪华特权",
+                          "尊享豪華特權",
                           style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w300),),
                       ],
                     ),
@@ -112,7 +121,7 @@ class _MyPageState extends State< MyPage> {
                       height: 40,
                       alignment: Alignment.center,
                       child: const Text(
-                          "开通畅享全直播频道浏览特权",
+                          "開通暢享全直播頻道瀏覽特權",
                           style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
                     ),
                     const Spacer(),
@@ -180,7 +189,9 @@ class _MyPageState extends State< MyPage> {
                        Text(
                          myItemList[index]["itemTitle"].toString(),
                          style: const TextStyle(color: Colors.black12, fontSize: 14, fontWeight: FontWeight.w500),),
-                       Text(myItemList[index]["text"].toString(),style: const TextStyle(color: Colors.black12, fontSize: 14, fontWeight: FontWeight.w500),)
+                       Text(
+                         myItemList[index]["text"].toString(),
+                         style: const TextStyle(color: Colors.black12, fontSize: 14, fontWeight: FontWeight.w500),)
                      ],
                    )
                  ),
@@ -206,7 +217,7 @@ class _MyPageState extends State< MyPage> {
                       ) : (index == 1 ? Container(
                         width: 60,
                         // height: 30,
-                        child: const Text("限时特惠",style: TextStyle(color: Colors.red, fontSize: 14),),
+                        child: const Text("限時特惠",style: TextStyle(color: Colors.red, fontSize: 14),),
                       ):(index == 2 ? Container(
                         width: 10,
                         height: 10,
@@ -225,7 +236,7 @@ class _MyPageState extends State< MyPage> {
                         alignment: Alignment.center,
                         width: 60,
                         height: 30,
-                        child: const Text("联系我们",style: TextStyle(color: Colors.black45, fontSize: 14),),
+                        child: const Text("聯繫我們",style: TextStyle(color: Colors.black45, fontSize: 14),),
                       ):(
                       index == 7 ?
                       Container():(index == 4 || index == 5 ?
@@ -267,6 +278,26 @@ class _MyPageState extends State< MyPage> {
           );
         },
         itemCount: 8);
+  }
+
+
+  /// 进入登录账户界面
+  void doLoginOrSignUp() {
+    AppRouter.navigateTo(
+      context,
+      AppPagePath.login,
+      transition: TransitionType.inFromBottom,
+      transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+        return FadeTransition(
+            opacity: CurvedAnimation(
+              parent: animation,
+              curve: Curves.linear,
+            ),
+            child: child
+        );
+      },
+      transitionDuration: const Duration(seconds: 1),
+    );
   }
 
 

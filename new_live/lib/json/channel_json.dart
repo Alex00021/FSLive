@@ -1,7 +1,7 @@
 
 const List channel_json_one = [
   {
-    "LIVE":"温莎直播",
+    "LIVE":"溫莎直播",
     "num": "11",
     "img_profile":
         "https://static-cdn.jtvnw.net/jtv_user_pictures/9b670be0-6299-473e-9c54-307685fc1e70-profile_image-50x50.png",
@@ -13,7 +13,7 @@ const List channel_json_one = [
     "viewers": "2.5K",
   },
   {
-    "LIVE":"心动直播",
+    "LIVE":"心動直播",
     "num": "79",
     "img_profile":
         "https://static-cdn.jtvnw.net/jtv_user_pictures/e71855ac-1166-4513-80c2-812f8b9aa7a4-profile_image-70x70.png",
@@ -37,7 +37,7 @@ const List channel_json_one = [
     "viewers": "723",
   },
   {
-    "LIVE":"蜗秀直播",
+    "LIVE":"蝸秀直播",
     "num": "34",
     "img_profile":
     "https://static-cdn.jtvnw.net/jtv_user_pictures/9b670be0-6299-473e-9c54-307685fc1e70-profile_image-50x50.png",

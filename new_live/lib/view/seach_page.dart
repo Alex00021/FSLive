@@ -23,7 +23,9 @@ class _SearchPageState extends State<SearchPage> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
-        title: const Text("輸入閣下要搜尋的主播名稱", style: TextStyle(color: Colors.black54, fontSize: 18, fontWeight: FontWeight.bold),),
+        title: const Text(
+          "輸入閣下要搜尋的主播名稱",
+          style: TextStyle(color: Colors.black54, fontSize: 18, fontWeight: FontWeight.bold),),
         centerTitle: true,
         leading: IconButton(
           onPressed: (){

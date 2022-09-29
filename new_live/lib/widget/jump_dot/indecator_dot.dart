@@ -16,7 +16,7 @@ class JumpingDotEffect extends BasicIndicatorEffect {
   final double verticalOffset;
 
   const JumpingDotEffect({
-    Color activeDotColor = Colors.brown,
+    Color activeDotColor = Colors.pink,
     this.jumpScale = 1.4,
     this.verticalOffset = 0.0,
     double offset = 16.0,

@@ -46,12 +46,12 @@ class _ChannelPageState extends State<ChannelPage> {
                           width: 10,
                         ),
                         const Text(
-                          "风速Live",
+                          "神戶Live",
                           style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
                         Spacer(),
                         const Text(
-                          "频道列表",
-                          style: TextStyle(color: Colors.grey, fontSize: 23, fontWeight: FontWeight.bold),)
+                          "頻道列表",
+                          style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),)
                       ],
                     ),
                   ),
@@ -85,7 +85,7 @@ class _ChannelPageState extends State<ChannelPage> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const Text(
-                "持续新增中",
+                "持續新增中",
                 style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
               GestureDetector(
                 onTap: (){
@@ -95,7 +95,7 @@ class _ChannelPageState extends State<ChannelPage> {
                   child: Row(
                     children: const [
                       Text(
-                        "49个平台",
+                        "49個平台",
                         style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
                     ],
                   ),

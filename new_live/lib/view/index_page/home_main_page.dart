@@ -47,11 +47,11 @@ class _HotMainPageState extends State<HotMainPage> {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    const Text("风速Live",style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
+                    const Text("神戶Live",style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
                     const SizedBox(width: 25,),
                     GestureDetector(
                       onTap: (){
-                        // Navigator.push(context, MaterialPageRoute(builder: (_) =>  const SearchPage()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) =>  const SearchPage()));
                         setState(() {
                           FluroRouter.appRouter.navigateTo(
                             context,
@@ -63,10 +63,10 @@ class _HotMainPageState extends State<HotMainPage> {
                                     parent: animation,
                                     curve: Curves.linear,
                                   ),
-                                  child: SearchPage()
+                                  child: const SearchPage()
                               );
                             },
-                            transitionDuration: Duration(seconds: 1), // 需要1s切换
+                            transitionDuration: const Duration(seconds: 1), // 需要1s切换
                           );
                         });
                       },
@@ -310,7 +310,9 @@ class _HotMainPageState extends State<HotMainPage> {
                               ),
                             ),
                             Spacer(),
-                            Text(anchorItem[index]["tips"].toString(),style: const TextStyle(color: Colors.white, fontSize: 10,fontWeight: FontWeight.w400),)
+                            Text(
+                              anchorItem[index]["tips"].toString(),
+                              style: const TextStyle(color: Colors.white, fontSize: 10,fontWeight: FontWeight.w400),)
                           ],
                         ),
                       ),
@@ -327,9 +329,13 @@ class _HotMainPageState extends State<HotMainPage> {
                   ),
                   Row(
                     children: [
-                      Text(anchorItem[index]["anchorName"].toString(),style: const TextStyle(color: Colors.white, fontSize: 12,fontWeight: FontWeight.w400),),
+                      Text(
+                        anchorItem[index]["anchorName"].toString(),
+                        style: const TextStyle(color: Colors.white, fontSize: 12,fontWeight: FontWeight.w400),),
                       const Spacer(),
-                      Text(anchorItem[index]["aboutLivers"].toString(),style: const TextStyle(color: Colors.white, fontSize: 10,fontWeight: FontWeight.w400),),
+                      Text(
+                        anchorItem[index]["aboutLivers"].toString(),
+                        style: const TextStyle(color: Colors.white, fontSize: 10,fontWeight: FontWeight.w400),),
                     ],
                   )
 

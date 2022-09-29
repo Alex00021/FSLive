@@ -11,8 +11,8 @@ const List<Map<String, String>> anchorItem = [
   {
     "bgImage": "https://img0.baidu.com/it/u=970101771,3966705260&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=707",
     "headImage": "https://img0.baidu.com/it/u=970101771,3966705260&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=707",
-    "anchorName": "小赌怡情",
-    "tips": "特约广告",
+    "anchorName": "小賭怡情",
+    "tips": "特約廣告",
     "aboutLivers": "7.82W"
   },
   {

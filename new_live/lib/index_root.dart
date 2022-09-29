@@ -1,4 +1,7 @@
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:new_live/router/app_page_path.dart';
+import 'package:new_live/router/app_router.dart';
 import 'view/index_page/channel_page.dart';
 import 'view/index_page/favorite_page.dart';
 import 'view/index_page/home_main_page.dart';
@@ -101,6 +104,21 @@ class _IndexRootState extends State<IndexRoot> {
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: (index) {
+            index == 2 ? AppRouter.navigateTo(
+              context,
+              AppPagePath.login,
+              transition: TransitionType.inFromBottom,
+              transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
+                return FadeTransition(
+                    opacity: CurvedAnimation(
+                      parent: animation,
+                      curve: Curves.linear,
+                    ),
+                    child: child
+                );
+              },
+              transitionDuration: const Duration(seconds: 1),
+            ):
             changePage(index);
           }),
       body: pageControllers[currentIndex],

@@ -1,10 +1,15 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:new_live/router/app_router.dart';
+import 'package:new_live/router/application_router.dart';
 import 'package:new_live/view/seach_page.dart';
 import 'index_root.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await ApplicationRouter.setupRouter();
+
   runApp(const MyApp());
 
   ///设置状态栏背景色为透明色
@@ -28,16 +33,13 @@ class MyApp extends StatelessWidget {
         splashColor: Colors.transparent, // 点击时的高亮效果设置为透明
         highlightColor: Colors.transparent, // 长按时的扩散效果设置为透明
       ),
-      initialRoute: "/",
-      routes: <String,WidgetBuilder>{
-        "/": (context) => FSAD(title: '',),
-        "firstScreen": (context) => SearchPage(), // 根目录
-      },
-      // home: const FSAD(title: "",),
+      onGenerateRoute: AppRouter.generator,
     );
   }
 }
 
+
+/// splash --- 开屏广告界面
 class FSAD extends StatefulWidget {
   const FSAD({Key? key, required this.title}) : super(key: key);
 
@@ -51,7 +53,7 @@ class FSAD extends StatefulWidget {
 class _FSADState extends State<FSAD> {
 
   Timer? timer;
-  int count = 3;
+  int count = 6;
 
   @override
   void initState() {

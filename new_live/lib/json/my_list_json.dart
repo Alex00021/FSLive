@@ -9,41 +9,41 @@
 const List<Map<String, String>> myItemList = [
   {
     "leadingImage": "",
-    "itemTitle": "贵宾续期",
+    "itemTitle": "貴賓續期",
     "itemTip": ""
   },
   {
     "leadingImage": "",
-    "itemTitle": "购买续期卡",
+    "itemTitle": "購買續期卡",
     "itemTip": ""
   },
   {
     "leadingImage": "",
-    "itemTitle": "我的关注",
+    "itemTitle": "我的關注",
     "itemTip": ""
   },
   {
     "leadingImage": "",
-    "itemTitle": "官方站点",
+    "itemTitle": "官方站點",
     "itemTip": ""
   },
   {
     "leadingImage": "",
-    "itemTitle": "投诉举报",
+    "itemTitle": "投訴舉報",
     "itemTip": ""
   },
   {
     "leadingImage": "",
-    "itemTitle": "免责条款",
+    "itemTitle": "免責條款",
     "itemTip": ""
   },
   {
     "leadingImage": "",
-    "itemTitle": "关于本软体",
+    "itemTitle": "關於本軟體",
     "itemTip": ""
   },
   {
-    "itemTitle": "风速Live v1.0.0",
-    "text": "www.FengSu.fun  ·香港风娱文化有限公司"
+    "itemTitle": "神户Live v1.0.0",
+    "text": "www.ShenHu.fun  ·香港娛樂文化有限公司"
   },
 ];
