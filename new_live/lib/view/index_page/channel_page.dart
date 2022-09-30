@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:scroll_text/scroll_text.dart';
 
 import '../../json/anchor_json.dart';
+import '../../json/channel_json.dart';
+import '../../json/platForm_json.dart';
 import '../../widget/page_view_indicator.dart';
 
 ///@Description     xxxx
@@ -46,7 +48,7 @@ class _ChannelPageState extends State<ChannelPage> {
                           width: 10,
                         ),
                         const Text(
-                          "神戶Live",
+                          "兔奇Live",
                           style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
                         Spacer(),
                         const Text(
@@ -192,7 +194,7 @@ class _ChannelPageState extends State<ChannelPage> {
                           borderRadius: BorderRadius.circular(10),
                           color: Colors.white,
                           image: DecorationImage(
-                            image: NetworkImage(anchorItem[index]["bgImage"].toString()),
+                            image: NetworkImage(platFormData[index]["bgImage"].toString()),
                             fit: BoxFit.cover,
                           ),
                         ),

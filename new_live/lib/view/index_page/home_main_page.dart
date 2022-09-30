@@ -47,7 +47,7 @@ class _HotMainPageState extends State<HotMainPage> {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    const Text("神戶Live",style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
+                    const Text("兔奇Live",style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
                     const SizedBox(width: 25,),
                     GestureDetector(
                       onTap: (){

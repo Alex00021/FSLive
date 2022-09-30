@@ -44,7 +44,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         title: const Text(
-          "登入神戶賬戶",
+          "登入兔奇賬戶",
           style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
@@ -60,12 +60,18 @@ class _LoginPageState extends State<LoginPage> {
               ))
         ],
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(20),
-          child: getLoginBody(),
+      body: GestureDetector(
+        onTap: (){
+          // 触摸收起键盘,撤销编辑聚焦
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: getLoginBody(),
+          ),
         ),
-      ),
+      )
     );
   }
 
@@ -112,7 +118,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 10,
               ),
               Container(
-                height: 1,
+                height: 2,
                 width: double.infinity,
                 color: Colors.grey,
               )
@@ -122,14 +128,19 @@ class _LoginPageState extends State<LoginPage> {
             height: 20,
           ),
           TextField(
-            keyboardType: TextInputType.emailAddress,
-            cursorColor: primary,
+            keyboardType: TextInputType.phone,
+            cursorColor: Colors.blue,
             controller: _controllerNum,
+            style: const TextStyle(color: Colors.white),
+
             decoration: const InputDecoration(
-              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
+              // prefixText: "+86 ",
+
+              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
+              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
               hintStyle: TextStyle(color: Colors.white),
-              hintText: "行動手機號碼",
+              labelText: "行動手機號碼",
+              labelStyle: TextStyle(color: Colors.white),
             ),
           ),
           const SizedBox(
@@ -137,19 +148,15 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextField(
             keyboardType: TextInputType.emailAddress,
-            // obscureText: !isShowPassword,
-            cursorColor: primary,
+            cursorColor: Colors.blue,
             controller: _controllerName,
+            style: const TextStyle(color: Colors.white),
             decoration: const InputDecoration(
               hintStyle: TextStyle(color: Colors.white),
-              hintText: "密碼",
-              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-              // suffixIcon: FlatButton(onPressed: () {
-              // setState(() {
-              // // isShowPassword = !isShowPassword;
-              // });
-              // }, child: Icon(isShowPassword ? Icons.visibility : Icons.visibility_off, color: primary,))
+              labelText: "密碼",
+              labelStyle: TextStyle(color: Colors.white),
+              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
+              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
             ),
           ),
           const SizedBox(
@@ -191,7 +198,7 @@ class _LoginPageState extends State<LoginPage> {
           FlatButton(
             minWidth: double.infinity,
             height: 52,
-            shape: StadiumBorder(),
+            shape: const StadiumBorder(),
             color: Colors.red,
               onPressed: (){},
               child: const Text(
@@ -233,11 +240,11 @@ class _LoginPageState extends State<LoginPage> {
              GestureDetector(
                onTap: (){
                  ///TODO
-                 print("《神戶萬能直播聚合》軟體用戶服務和免責條款");
+                 print("《兔奇萬能直播聚合》軟體用戶服務和免責條款");
                },
                child:  Container(
                  child: const Text(
-                   "《神戶萬能直播聚合》軟體用戶服務和免責條款",
+                   "《兔奇萬能直播聚合》軟體用戶服務和免責條款",
                    style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),),
                ),
              )

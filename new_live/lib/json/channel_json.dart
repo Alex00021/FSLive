@@ -4,11 +4,11 @@ const List channel_json_one = [
     "LIVE":"溫莎直播",
     "num": "11",
     "img_profile":
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/9b670be0-6299-473e-9c54-307685fc1e70-profile_image-50x50.png",
+        "https://img2.baidu.com/it/u=4191044843,648779034&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=625",
     "title": "Gheto Kaiba - War is over | RUST | NoPixel WL BucketSt",
     "type": "GTA",
     "img_video":
-        "https://static-cdn.jtvnw.net/previews-ttv/live_user_ray__c-440x248.jpg",
+        "https://img2.baidu.com/it/u=3603584117,1565585104&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=625",
     "video_url": "assets/videos/gta_video.mp4",
     "viewers": "2.5K",
   },
@@ -16,7 +16,7 @@ const List channel_json_one = [
     "LIVE":"心動直播",
     "num": "79",
     "img_profile":
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/e71855ac-1166-4513-80c2-812f8b9aa7a4-profile_image-70x70.png",
+        "https://img0.baidu.com/it/u=3934210427,1353779838&fm=253&fmt=auto&app=138&f=JPEG?w=445&h=498",
     "title": "เพิ่งตื่น โกโก้มิ้นก็อดกิน :(",
     "type": "GTA",
     "img_video":
@@ -28,7 +28,7 @@ const List channel_json_one = [
     "LIVE":"PandaTV",
     "num": "80",
     "img_profile":
-        "https://static-cdn.jtvnw.net/jtv_user_pictures/69303b46-18b1-4447-a0cc-0a4c277eb89a-profile_image-50x50.png",
+        "https://img0.baidu.com/it/u=2005346820,2140185503&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=494",
     "title": "Warming up",
     "type": "Overwatch",
     "img_video":
@@ -40,7 +40,7 @@ const List channel_json_one = [
     "LIVE":"蝸秀直播",
     "num": "34",
     "img_profile":
-    "https://static-cdn.jtvnw.net/jtv_user_pictures/9b670be0-6299-473e-9c54-307685fc1e70-profile_image-50x50.png",
+    "https://img0.baidu.com/it/u=2026170162,3169461954&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=625",
     "title": "Gheto Kaiba - War is over | RUST | NoPixel WL BucketSt",
     "type": "GTA",
     "img_video":
@@ -52,7 +52,7 @@ const List channel_json_one = [
     "LIVE":"浪Live",
     "num": "79",
     "img_profile":
-    "https://static-cdn.jtvnw.net/jtv_user_pictures/9b670be0-6299-473e-9c54-307685fc1e70-profile_image-50x50.png",
+    "https://img0.baidu.com/it/u=3782935226,3015329376&fm=253&fmt=auto&app=138&f=JPEG?w=510&h=500",
     "title": "Gheto Kaiba - War is over | RUST | NoPixel WL BucketSt",
     "type": "GTA",
     "img_video":

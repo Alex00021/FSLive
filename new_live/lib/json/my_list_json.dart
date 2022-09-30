@@ -43,7 +43,7 @@ const List<Map<String, String>> myItemList = [
     "itemTip": ""
   },
   {
-    "itemTitle": "神户Live v1.0.0",
-    "text": "www.ShenHu.fun  ·香港娛樂文化有限公司"
+    "itemTitle": "兔奇Live v1.0.0",
+    "text": "www.TuQi.fun  ·香港娛樂文化有限公司"
   },
 ];

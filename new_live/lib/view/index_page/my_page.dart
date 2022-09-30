@@ -51,7 +51,7 @@ class _MyPageState extends State< MyPage> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Text(
-            "歡迎來到神戶 ·\nWWW.ShenHu.fun",
+            "歡迎來到兔奇 ·\nWWW.TuQi.fun",
             style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),),
           const SizedBox(
             height: 2,
@@ -104,7 +104,7 @@ class _MyPageState extends State< MyPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [
                         Text(
-                          "神戶VIP",
+                          "兔奇VIP",
                           style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),),
                         SizedBox(
                           height: 3,

@@ -43,7 +43,7 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
           ),
         ),
         title: const Text(
-          "登入神戶賬戶",
+          "重置賬戶密碼",
           style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
@@ -59,12 +59,18 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
               ))
         ],
       ),
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: getForgetPwdBody(),
+      body: GestureDetector(
+        onTap: (){
+          // 触摸收起键盘,撤销编辑聚焦
+          FocusScope.of(context).requestFocus(FocusNode());
+        },
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: getForgetPwdBody(),
+          ),
         ),
-      ),
+      )
     );
   }
 
@@ -121,14 +127,15 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            height: 20,
          ),
          TextField(
-           keyboardType: TextInputType.emailAddress,
+           keyboardType: TextInputType.phone,
            cursorColor: primary,
            controller: _controllerNum,
            decoration: const InputDecoration(
-             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
+             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             hintText: "行動手機號碼",
+             labelText: "行動手機號碼",
+             labelStyle: TextStyle(color: Colors.white),
            ),
          ),
          const SizedBox(
@@ -139,10 +146,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            cursorColor: primary,
            controller: _controllerNum,
            decoration: const InputDecoration(
-             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
+             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             hintText: "曾使用過的續期卡密",
+             labelText: "曾使用過的續期卡密",
+             labelStyle: TextStyle(color: Colors.white),
            ),
          ),
          const SizedBox(
@@ -154,10 +162,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            cursorColor: primary,
            controller: _controllerName,
            decoration: const InputDecoration(
+             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             hintText: "新密碼",
-             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
+             labelText: "新密碼",
+             labelStyle: TextStyle(color: Colors.white),
            ),
          ),
          const SizedBox(
@@ -169,10 +178,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            cursorColor: primary,
            controller: _controllerName,
            decoration: const InputDecoration(
+             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
+             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             hintText: "確認密碼",
-             enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
-             focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: white)),
+             labelText: "確認密碼",
+             labelStyle: TextStyle(color: Colors.white),
            ),
          ),
          const SizedBox(

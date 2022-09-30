@@ -31,9 +31,9 @@ class _PageViewIndicatorState extends State<PageViewIndicator> {
 
   final controller = PageController(viewportFraction: 0.8, keepPage: true);
   List<String> imagesList = [
-    "assets/images/image_02.jpg",
-    "assets/images/image_03.jpg",
-    "assets/images/image_04.jpg",
+    "assets/images/image_06.webp",
+    "assets/images/image_07.webp",
+    "assets/images/person_02.webp",
   ];
 
   @override
