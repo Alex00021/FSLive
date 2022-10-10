@@ -1,6 +1,7 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/widgets.dart';
+import '../../generated/l10n.dart';
 import '../../json/my_list_json.dart';
 import '../../router/app_page_path.dart';
 import '../../router/app_router.dart';
@@ -30,7 +31,7 @@ class _MyPageState extends State< MyPage> {
           IconButton(
               onPressed: (){
                 ///TODO
-                Navigator.push(context, MaterialPageRoute(builder: (_) => SettingsPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (_) => const SettingsPage()));
               },
               icon: const Icon(Icons.settings_outlined, color: Colors.black,))
         ],
@@ -52,9 +53,9 @@ class _MyPageState extends State< MyPage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "歡迎來到兔奇 ·\nWWW.TuQi.fun",
-            style: TextStyle(fontSize: 21, fontWeight: FontWeight.w500),),
+          Text(
+            "${S.of(context).mine_title} ·\nWWW.TuQi.fun",
+            style: const TextStyle(fontSize: 21, fontWeight: FontWeight.w500),),
           const SizedBox(
             height: 2,
           ),
@@ -66,9 +67,9 @@ class _MyPageState extends State< MyPage> {
               onPressed: (){
                 doLoginOrSignUp();
               },
-              child: const Text(
-                "登入/註冊",
-                style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),)),
+              child: Text(
+                S.of(context).mine_sign_in_or_up,
+                style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),)),
           const SizedBox(
             height: 10,
           ),
@@ -104,29 +105,44 @@ class _MyPageState extends State< MyPage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         Text(
-                          "兔奇VIP",
-                          style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),),
-                        SizedBox(
+                          S.of(context).mine_vip,
+                          style: const TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.bold),),
+                        const SizedBox(
                           height: 3,
                         ),
-                        Text(
-                          "尊享豪華特權",
-                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w300),),
+                        Container(
+                          width: 100,
+                          child: Text(
+                              S.of(context).mine_goods,
+                              style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w300),
+                              textAlign: TextAlign.start,softWrap: true, maxLines: 10),
+                        ),
+                      ],
+                    ),
+                    // const SizedBox(
+                    //   width: 10,
+                    // ),
+
+                    const Spacer(),
+                    Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          height: 40,
+                          width: 130,
+                          alignment: Alignment.centerRight,
+                          child: Text(
+                            S.of(context).mine_goods2,
+                            style: const TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                            softWrap: true, maxLines: 10,textAlign: TextAlign.end,),
+                        ),
                       ],
                     ),
                     const SizedBox(
-                      width: 10,
+                      width: 5,
                     ),
-                    Container(
-                      height: 40,
-                      alignment: Alignment.center,
-                      child: const Text(
-                          "開通暢享全直播頻道瀏覽特權",
-                          style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold)),
-                    ),
-                    const Spacer(),
                     const Icon(Icons.arrow_forward_ios, color: Colors.white, size: 15,),
                     const SizedBox(
                       width: 5,
@@ -189,6 +205,7 @@ class _MyPageState extends State< MyPage> {
                    child: Column(mainAxisAlignment: MainAxisAlignment.center,
                      children: [
                        Text(
+                       // S.of(context).welcome(""),
                          myItemList[index]["itemTitle"].toString(),
                          style: const TextStyle(color: Colors.black12, fontSize: 14, fontWeight: FontWeight.w500),),
                        Text(
@@ -219,7 +236,7 @@ class _MyPageState extends State< MyPage> {
                       ) : (index == 1 ? Container(
                         width: 60,
                         // height: 30,
-                        child: const Text("限時特惠",style: TextStyle(color: Colors.red, fontSize: 14),),
+                        child: Text(S.of(context).mine_only_time,style: const TextStyle(color: Colors.red, fontSize: 14),),
                       ):(index == 2 ? Container(
                         width: 10,
                         height: 10,
@@ -238,7 +255,7 @@ class _MyPageState extends State< MyPage> {
                         alignment: Alignment.center,
                         width: 60,
                         height: 30,
-                        child: const Text("聯繫我們",style: TextStyle(color: Colors.black45, fontSize: 14),),
+                        child: Text(S.of(context).mine_call_our,style: TextStyle(color: Colors.black45, fontSize: 14),),
                       ):(
                       index == 7 ?
                       Container():(index == 4 || index == 5 ?

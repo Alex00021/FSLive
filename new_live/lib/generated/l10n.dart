@@ -90,10 +90,10 @@ class S {
     );
   }
 
-  /// `ToKiLive`
+  /// `TuqiLive`
   String get hotTitle {
     return Intl.message(
-      'ToKiLive',
+      'TuqiLive',
       name: 'hotTitle',
       desc: '',
       args: [],
@@ -145,6 +145,276 @@ class S {
     return Intl.message(
       'Popular anchors',
       name: 'hot_main_anchor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `anchor`
+  String get anchor {
+    return Intl.message(
+      'anchor',
+      name: 'anchor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Channel List`
+  String get channel_List {
+    return Intl.message(
+      'Channel List',
+      name: 'channel_List',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continuing to add`
+  String get channel_add {
+    return Intl.message(
+      'Continuing to add',
+      name: 'channel_add',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `58 platforms`
+  String get channel_platform {
+    return Intl.message(
+      '58 platforms',
+      name: 'channel_platform',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login to Tuqi account`
+  String get login_title {
+    return Intl.message(
+      'Login to Tuqi account',
+      name: 'login_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `country / region`
+  String get login_area {
+    return Intl.message(
+      'country / region',
+      name: 'login_area',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mobile phone number`
+  String get login_phoneNum {
+    return Intl.message(
+      'mobile phone number',
+      name: 'login_phoneNum',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `password`
+  String get login_pwd {
+    return Intl.message(
+      'password',
+      name: 'login_pwd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Forgot your password?`
+  String get login_forget_pwd {
+    return Intl.message(
+      'Forgot your password?',
+      name: 'login_forget_pwd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign in`
+  String get login_sign_in {
+    return Intl.message(
+      'Sign in',
+      name: 'login_sign_in',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register an account now`
+  String get login_sign_up {
+    return Intl.message(
+      'Register an account now',
+      name: 'login_sign_up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `By logging in, you agree to the following terms`
+  String get login_agree_title1 {
+    return Intl.message(
+      'By logging in, you agree to the following terms',
+      name: 'login_agree_title1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `《Tuqi Universal Live Aggregation》 software user service and disclaimer`
+  String get login_agree_title2 {
+    return Intl.message(
+      '《Tuqi Universal Live Aggregation》 software user service and disclaimer',
+      name: 'login_agree_title2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Account Password`
+  String get reset_pwd_title {
+    return Intl.message(
+      'Reset Account Password',
+      name: 'reset_pwd_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `renewed PINs that have been used`
+  String get reset_pwd_useInfo {
+    return Intl.message(
+      'renewed PINs that have been used',
+      name: 'reset_pwd_useInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `new password`
+  String get reset_pwd_new_pwd {
+    return Intl.message(
+      'new password',
+      name: 'reset_pwd_new_pwd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `confirm Password`
+  String get reset_pwd_sure_pwd {
+    return Intl.message(
+      'confirm Password',
+      name: 'reset_pwd_sure_pwd',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Reset Password`
+  String get reset_pwd_submit {
+    return Intl.message(
+      'Reset Password',
+      name: 'reset_pwd_submit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome to Tuqi`
+  String get mine_title {
+    return Intl.message(
+      'Welcome to Tuqi',
+      name: 'mine_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `login/register`
+  String get mine_sign_in_or_up {
+    return Intl.message(
+      'login/register',
+      name: 'mine_sign_in_or_up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tuqi VIP`
+  String get mine_vip {
+    return Intl.message(
+      'Tuqi VIP',
+      name: 'mine_vip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enjoy luxurious privileges`
+  String get mine_goods {
+    return Intl.message(
+      'Enjoy luxurious privileges',
+      name: 'mine_goods',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open and enjoy the privilege of browsing all live channels`
+  String get mine_goods2 {
+    return Intl.message(
+      'Open and enjoy the privilege of browsing all live channels',
+      name: 'mine_goods2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Limited time offer`
+  String get mine_only_time {
+    return Intl.message(
+      'Limited time offer',
+      name: 'mine_only_time',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `contact us`
+  String get mine_call_our {
+    return Intl.message(
+      'contact us',
+      name: 'mine_call_our',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `welcome`
+  String get mine_list_title {
+    return Intl.message(
+      'welcome',
+      name: 'mine_list_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language selection`
+  String get mine_language {
+    return Intl.message(
+      'Language selection',
+      name: 'mine_language',
       desc: '',
       args: [],
     );

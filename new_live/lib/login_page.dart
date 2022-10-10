@@ -1,6 +1,8 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:new_live/generated/l10n.dart';
 import 'package:new_live/router/app_page_path.dart';
 import 'package:new_live/router/app_router.dart';
 import 'package:new_live/theme/colors.dart';
@@ -43,8 +45,8 @@ class _LoginPageState extends State<LoginPage> {
             color: Colors.white,
           ),
         ),
-        title: const Text(
-          "登入兔奇賬戶",
+        title: Text(
+          S.of(context).login_title,
           style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
@@ -90,8 +92,8 @@ class _LoginPageState extends State<LoginPage> {
                 children: [
                   Container(
                     width: 80,
-                    child: const Text(
-                      "國家地區",
+                    child: Text(
+                      S.of(context).login_area,
                       style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400),
                     ),
                   ),
@@ -133,13 +135,13 @@ class _LoginPageState extends State<LoginPage> {
             controller: _controllerNum,
             style: const TextStyle(color: Colors.white),
 
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               // prefixText: "+86 ",
 
               enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
               focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
               hintStyle: TextStyle(color: Colors.white),
-              labelText: "行動手機號碼",
+              labelText:  S.of(context).login_phoneNum,
               labelStyle: TextStyle(color: Colors.white),
             ),
           ),
@@ -151,9 +153,9 @@ class _LoginPageState extends State<LoginPage> {
             cursorColor: Colors.blue,
             controller: _controllerName,
             style: const TextStyle(color: Colors.white),
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               hintStyle: TextStyle(color: Colors.white),
-              labelText: "密碼",
+              labelText:  S.of(context).login_pwd,
               labelStyle: TextStyle(color: Colors.white),
               enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
               focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
@@ -185,8 +187,8 @@ class _LoginPageState extends State<LoginPage> {
                  // );
                },
                child: Container(
-                   child: const Text(
-                     "遺忘密碼?",
+                   child: Text(
+                     S.of(context).login_forget_pwd,
                      style: TextStyle(color: Colors.white),)
                ),
              )
@@ -201,8 +203,8 @@ class _LoginPageState extends State<LoginPage> {
             shape: const StadiumBorder(),
             color: Colors.red,
               onPressed: (){},
-              child: const Text(
-                "登入",
+              child: Text(
+                S.of(context).login_sign_in,
                 style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),)),
           const SizedBox(
             height: 20,
@@ -216,8 +218,8 @@ class _LoginPageState extends State<LoginPage> {
                  side: const BorderSide(width: 1, color: Colors.white),
                ),
                onPressed: (){},
-               child: const Text(
-                 "馬上註冊賬戶",
+               child: Text(
+                 S.of(context).login_sign_up,
                  style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),)),
          ),
           const SizedBox(
@@ -226,8 +228,8 @@ class _LoginPageState extends State<LoginPage> {
           Row(mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                child: const Text(
-                  "登入即表示同意以下條款",
+                child: Text(
+                  S.of(context).login_agree_title1,
                   style: TextStyle(color: Colors.grey, fontSize: 12, fontWeight: FontWeight.w400),),
               )
             ],
@@ -235,17 +237,19 @@ class _LoginPageState extends State<LoginPage> {
           const SizedBox(
             height: 20,
           ),
-          Row(mainAxisAlignment: MainAxisAlignment.center,
+          Column(mainAxisAlignment: MainAxisAlignment.center,
             children: [
              GestureDetector(
                onTap: (){
                  ///TODO
                  print("《兔奇萬能直播聚合》軟體用戶服務和免責條款");
                },
-               child:  Container(
-                 child: const Text(
-                   "《兔奇萬能直播聚合》軟體用戶服務和免責條款",
-                   style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),),
+               child: Container(
+                 alignment: Alignment.center,
+                 // height: 40,
+                 child: Text(
+                   S.of(context).login_agree_title2,
+                   style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w400),softWrap: true, maxLines: 10, textAlign: TextAlign.center,),
                ),
              )
             ],

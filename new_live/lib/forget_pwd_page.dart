@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:new_live/generated/l10n.dart';
 import 'package:new_live/theme/colors.dart';
 
 /**
@@ -42,9 +43,9 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
             color: Colors.white,
           ),
         ),
-        title: const Text(
-          "重置賬戶密碼",
-          style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.w500),
+        title: Text(
+          S.of(context).reset_pwd_title,
+          style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.w500),
         ),
         centerTitle: true,
         elevation: 0,
@@ -89,8 +90,8 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
                    children: [
                      Container(
                        width: 80,
-                       child: const Text(
-                         "國家地區",
+                       child: Text(
+                         S.of(context).login_area,
                          style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.w400),
                        ),
                      ),
@@ -130,11 +131,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            keyboardType: TextInputType.phone,
            cursorColor: primary,
            controller: _controllerNum,
-           decoration: const InputDecoration(
+           decoration: InputDecoration(
              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             labelText: "行動手機號碼",
+             labelText: S.of(context).login_phoneNum,
              labelStyle: TextStyle(color: Colors.white),
            ),
          ),
@@ -145,11 +146,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            keyboardType: TextInputType.emailAddress,
            cursorColor: primary,
            controller: _controllerNum,
-           decoration: const InputDecoration(
+           decoration: InputDecoration(
              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             labelText: "曾使用過的續期卡密",
+             labelText: S.of(context).reset_pwd_useInfo,
              labelStyle: TextStyle(color: Colors.white),
            ),
          ),
@@ -161,11 +162,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            // obscureText: !isShowPassword,
            cursorColor: primary,
            controller: _controllerName,
-           decoration: const InputDecoration(
+           decoration: InputDecoration(
              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             labelText: "新密碼",
+             labelText: S.of(context).reset_pwd_new_pwd,
              labelStyle: TextStyle(color: Colors.white),
            ),
          ),
@@ -177,11 +178,11 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
            // obscureText: !isShowPassword,
            cursorColor: primary,
            controller: _controllerName,
-           decoration: const InputDecoration(
+           decoration: InputDecoration(
              enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: white, width: 2)),
              focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.blue, width: 2)),
              hintStyle: TextStyle(color: Colors.white),
-             labelText: "確認密碼",
+             labelText: S.of(context).reset_pwd_sure_pwd,
              labelStyle: TextStyle(color: Colors.white),
            ),
          ),
@@ -197,8 +198,8 @@ class _ForgetPwdPageState extends State<ForgetPwdPage> {
              shape: const StadiumBorder(),
              color: Colors.red,
              onPressed: (){},
-             child: const Text(
-               "重置密碼",
+             child: Text(
+               S.of(context).reset_pwd_submit,
                style: TextStyle(color: Colors.white, fontSize: 14, fontWeight: FontWeight.w400),)),
          const SizedBox(
            height: 20,

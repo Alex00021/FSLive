@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:scroll_text/scroll_text.dart';
 
+import '../../generated/l10n.dart';
 import '../../json/anchor_json.dart';
 import '../../json/channel_json.dart';
 import '../../json/platForm_json.dart';
@@ -47,12 +48,12 @@ class _ChannelPageState extends State<ChannelPage> {
                         const SizedBox(
                           width: 10,
                         ),
-                        const Text(
-                          "兔奇Live",
+                        Text(
+                          S.of(context).hotTitle,
                           style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
                         Spacer(),
-                        const Text(
-                          "頻道列表",
+                        Text(
+                          S.of(context).anchor,
                           style: TextStyle(color: Colors.grey, fontSize: 18, fontWeight: FontWeight.w400),)
                       ],
                     ),
@@ -86,18 +87,18 @@ class _ChannelPageState extends State<ChannelPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text(
-                "持續新增中",
-                style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
+              Text(
+                S.of(context).channel_add,
+                style: const TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
               GestureDetector(
                 onTap: (){
                   ///TODO
                 },
                 child: Container(
                   child: Row(
-                    children: const [
+                    children: [
                       Text(
-                        "49個平台",
+                        S.of(context).channel_add,
                         style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
                     ],
                   ),

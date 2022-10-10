@@ -1,7 +1,4 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 import '../generated/l10n.dart';
 
 /**
@@ -19,6 +16,8 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,40 +25,42 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
+        title: Text(S.of(context).mine_language, style: const TextStyle(color: Colors.black45, fontSize: 20),),
+        centerTitle: true,
         leading: IconButton(
           onPressed: (){
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back_sharp, color: Colors.black45,),
+          icon: const Icon(Icons.arrow_back_sharp, color: Colors.black45,),
         ),
       ),
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               FlatButton(
-                height: 80,
+                height: 53,
                   minWidth: double.infinity,
-                  color: Colors.blue,
-                  shape: StadiumBorder(),
+                  color: Colors.blueGrey,
+                  shape: const StadiumBorder(),
                   onPressed: (){
-                S.load(Locale('en', 'EN'));
-              }, child: Text("English")),
-              SizedBox(
+                S.load(const Locale('en', 'EN'));
+              }, child: const Text("English", style: TextStyle(color: Colors.white))),
+              const SizedBox(
                 height: 30,
               ),
               FlatButton(
-                  height: 80,
+                  height: 53,
                   minWidth: double.infinity,
-                  color: Colors.blue,
-                  shape: StadiumBorder(),
+                  color: Colors.blueGrey,
+                  shape: const StadiumBorder(),
                   onPressed: (){
-                    S.load(Locale('zn', 'ZH'));
-                  }, child: Text("Chinese"))
+                    S.load(const Locale('zh', 'CN'));
+                  }, child: const Text("Chinese", style: TextStyle(color: Colors.white),))
             ],
           ),
         ),
