@@ -2,6 +2,7 @@ import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:new_live/router/app_page_path.dart';
 import 'package:new_live/router/app_router.dart';
+import 'generated/l10n.dart';
 import 'view/index_page/channel_page.dart';
 import 'view/index_page/favorite_page.dart';
 import 'view/index_page/home_main_page.dart';
@@ -100,7 +101,30 @@ class _IndexRootState extends State<IndexRoot> {
           showUnselectedLabels: true,
           selectedFontSize: 12,
           unselectedFontSize: 10,
-          items: bottomNavItems,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.local_fire_department_rounded),
+              label: S.of(context).index1_title,
+              activeIcon: const Icon(Icons.local_fire_department_rounded),
+            ),
+            // 頻道
+            BottomNavigationBarItem(
+              icon: Icon(Icons.play_circle_outline_sharp),
+              label: S.of(context).index2_title,
+              activeIcon: Icon(Icons.play_circle_outline_sharp),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite_border),
+              label: S.of(context).index3_title,
+              activeIcon: Icon(Icons.favorite_border),
+            ),
+            // "我的"页
+            BottomNavigationBarItem(
+              icon: Icon(Icons.tag_faces),
+              label: S.of(context).index4_title,
+              activeIcon: Icon(Icons.tag_faces),
+            ),
+          ],
           currentIndex: currentIndex,
           type: BottomNavigationBarType.fixed,
           onTap: (index) {

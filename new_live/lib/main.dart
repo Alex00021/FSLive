@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:new_live/router/app_router.dart';
 import 'package:new_live/router/application_router.dart';
 import 'package:new_live/view/seach_page.dart';
+import 'generated/l10n.dart';
 import 'index_root.dart';
 
 void main() async{
@@ -34,6 +36,17 @@ class MyApp extends StatelessWidget {
         highlightColor: Colors.transparent, // 长按时的扩散效果设置为透明
       ),
       onGenerateRoute: AppRouter.generator,
+
+        // 设置语言
+        localizationsDelegates: const [
+          S.delegate,
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate
+        ],
+        // 讲zh设置为第一项,没有适配语言时，英语为首选项
+        supportedLocales: S.delegate.supportedLocales,
+
     );
   }
 }

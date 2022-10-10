@@ -38,6 +38,10 @@ dependencies:
   carousel_slider: ^4.1.1
   flutter_icons: ^1.1.0
   fluro: ^2.0.3
+#  flutter_intl: ^0.0.1
+  flutter_localizations:
+    sdk: flutter
+#  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -91,3 +95,5 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+flutter_intl:
+  enabled: true

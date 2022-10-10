@@ -7,6 +7,7 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:new_live/login_page.dart';
+import 'package:new_live/view/seach_page.dart';
 import '../forget_pwd_page.dart';
 import '../index_root.dart';
 import '../main.dart';
@@ -22,6 +23,8 @@ final Map<String, Handler> pageHandler = {
   Handler(handlerFunc: (context, params) => const LoginPage()),
   AppPagePath.forgetPwd:
   Handler(handlerFunc: (context, params) => const ForgetPwdPage()),
+  AppPagePath.searchPage:
+      Handler(handlerFunc: (context, params) =>  const SearchPage())
   // AppPagePath.home:
   //     Handler(handlerFunc: (context, params) => const HomeScreen()),
   // AppPagePath.detail: Handler(handlerFunc: (context, params) {

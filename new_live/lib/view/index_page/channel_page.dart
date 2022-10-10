@@ -53,7 +53,7 @@ class _ChannelPageState extends State<ChannelPage> {
                         Spacer(),
                         const Text(
                           "頻道列表",
-                          style: TextStyle(color: Colors.grey, fontSize: 20, fontWeight: FontWeight.bold),)
+                          style: TextStyle(color: Colors.grey, fontSize: 18, fontWeight: FontWeight.w400),)
                       ],
                     ),
                   ),

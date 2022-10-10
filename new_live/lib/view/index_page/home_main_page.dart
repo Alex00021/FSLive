@@ -1,10 +1,13 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:new_live/router/app_router.dart';
 import 'package:scroll_text/scroll_text.dart';
+import '../../generated/l10n.dart';
 import '../../json/anchor_json.dart';
 import '../../json/channel_json.dart';
+import '../../router/app_page_path.dart';
 import '../../widget/page_view_indicator.dart';
-import '../seach_page.dart';
+
 
 ///@Description     HotMainPage
 ///@author          Alex.Ling
@@ -23,6 +26,12 @@ class _HotMainPageState extends State<HotMainPage> {
   // search(value) {
   //   print("搜索的值为：$value");
   // }
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,28 +56,15 @@ class _HotMainPageState extends State<HotMainPage> {
                       ),
                     ),
                     const SizedBox(width: 10,),
-                    const Text("兔奇Live",style: TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
+                     Text(S.of(context).hotTitle,style: const TextStyle(color: Colors.black, fontSize: 23, fontWeight: FontWeight.bold),),
                     const SizedBox(width: 25,),
                     GestureDetector(
                       onTap: (){
-                        Navigator.push(context, MaterialPageRoute(builder: (_) =>  const SearchPage()));
-                        setState(() {
-                          FluroRouter.appRouter.navigateTo(
-                            context,
-                            "firstScreen",
-                            transition: TransitionType.inFromBottom,
-                            transitionBuilder: (BuildContext context, Animation<double> animation, Animation<double> secondaryAnimation, Widget child) {
-                              return FadeTransition(
-                                  opacity: CurvedAnimation(
-                                    parent: animation,
-                                    curve: Curves.linear,
-                                  ),
-                                  child: const SearchPage()
-                              );
-                            },
-                            transitionDuration: const Duration(seconds: 1), // 需要1s切换
-                          );
-                        });
+                        AppRouter.navigateTo(
+                          context,
+                          AppPagePath.searchPage,
+                          transition: TransitionType.inFromRight,
+                        );
                       },
                       child: Container(
                         width: 140,
@@ -81,13 +77,13 @@ class _HotMainPageState extends State<HotMainPage> {
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: const [
-                            Icon(
+                          children: [
+                            const Icon(
                               Icons.search,
                               size: 18,
                               color: Colors.grey,
                             ),
-                            Text("搜索喜愛的主播", style: TextStyle(color: Colors.grey, fontSize: 14),)
+                            Text(S.of(context).searchText, style: const TextStyle(color: Colors.grey, fontSize: 14),)
                           ],
                         ),
                       ),
@@ -119,16 +115,16 @@ class _HotMainPageState extends State<HotMainPage> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const Text("最新頻道", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
+              Text(S.of(context).hot_main_newChannel, style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
               GestureDetector(
                 onTap: (){
                   ///TODO
                 },
                 child: Container(
                   child: Row(
-                    children: const [
-                      Text("更多", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
-                      Icon(Icons.arrow_forward_ios, color: Colors.black45)
+                    children: [
+                      Text(S.of(context).hot_main_more, style: const TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
+                      const Icon(Icons.arrow_forward_ios, color: Colors.black45)
                     ],
                   ),
                 ),
@@ -140,8 +136,8 @@ class _HotMainPageState extends State<HotMainPage> {
           const SizedBox(height: 20,),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
-              Text("熱門主播", style: TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
+            children: [
+              Text(S.of(context).hot_main_anchor, style: const TextStyle(color: Colors.black45, fontSize: 20, fontWeight: FontWeight.bold),),
 
             ],
           ),
@@ -171,11 +167,7 @@ class _HotMainPageState extends State<HotMainPage> {
               child: Container(
                 width: 300,
                 child: ScrollText(
-                  arrTexts: const [
-                    "本軟體的服務範圍不包含中國大陸、科威特和沙特阿拉伯地區，"
-                        "本軟體服務除上述區域以外的客戶，共同打造綠色健康的網路直播環境，主播應該健康直播，不得違反第三方機構和國家法令直播條例！"
-                        "如果閣下發現違規的直播房間，閣下可以在直播過程中點擊直播流播放過程中的驚嘆標誌舉報該第三方直播內容，"
-                        "我們會盡快將信息錄入並提供給該房間所屬的第三方直播機構盡快移除該房間！"],
+                  arrTexts: [S.of(context).alarmText],
                   maxListNum: 1,
                 ),
               ))

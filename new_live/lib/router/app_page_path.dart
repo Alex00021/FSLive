@@ -13,6 +13,8 @@ class AppPagePath {
   static const String login = '/login';
 
   static const String forgetPwd = '/forgetPwd';
+
+  static const String searchPage = '/searchPage';
  //
 // static const String index = '/index';
 //

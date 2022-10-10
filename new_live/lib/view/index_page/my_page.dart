@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../json/my_list_json.dart';
 import '../../router/app_page_path.dart';
 import '../../router/app_router.dart';
+import '../settings_page.dart';
 
 ///@Description     MyPage
 ///@author          Alex.Ling
@@ -29,6 +30,7 @@ class _MyPageState extends State< MyPage> {
           IconButton(
               onPressed: (){
                 ///TODO
+                Navigator.push(context, MaterialPageRoute(builder: (_) => SettingsPage()));
               },
               icon: const Icon(Icons.settings_outlined, color: Colors.black,))
         ],
